@@ -8,3 +8,4 @@
 - [x] Convert to ARGB instead of RGB sliders
 - [x] Make reset buttons work
 - [ ] Make sure all default options actually represent default behavior
+- [ ] Change mod name
