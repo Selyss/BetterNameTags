@@ -15,13 +15,9 @@ import java.nio.file.Path;
 public class ConfigManager {
     public static boolean modEnabled = true;
     public static boolean shadowEnabled = true;
-    public static int textAlpha = 255, textRed = 255, textGreen = 255, textBlue = 255;
+    public static int textARGB = 0xFFFFFFFF;
 //    public static int bgOpacity = 255 // highest in ARGB spec
     // TODO: add bgRed, bgGreen, bgBlue
-
-    public static Color getEnabledTextColor() {
-        return new Color(textAlpha, textRed, textGreen, textBlue);
-    }
 
     // credit to https://github.com/Walksy/ShieldStatus/blob/main/src/main/java/walksy/shieldstatus/manager/ConfigManager.java for config stuff
     private static final Path configDir = FabricLoader.getInstance().getConfigDir();
@@ -29,7 +25,7 @@ public class ConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void save() {
-        ConfigData configData = new ConfigData(modEnabled, shadowEnabled, textAlpha, textRed, textGreen, textBlue);
+        ConfigData configData = new ConfigData(modEnabled, shadowEnabled, textARGB);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             GSON.toJson(configData, writer);
@@ -44,10 +40,7 @@ public class ConfigManager {
                 ConfigData configData = GSON.fromJson(reader, ConfigData.class);
                 modEnabled = configData.modEnabled;
                 shadowEnabled = configData.shadowEnabled;
-                textAlpha = configData.textAlpha;
-                textRed = configData.textRed;
-                textGreen = configData.textGreen;
-                textBlue = configData.textBlue;
+                textARGB = configData.textARGB;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -57,15 +50,12 @@ public class ConfigManager {
     private static class ConfigData {
         boolean modEnabled;
         boolean shadowEnabled;
-        int textAlpha, textRed, textGreen, textBlue;
 
-        ConfigData(boolean modEnabled, boolean shadowEnabled, int textAlpha, int textRed, int textGreen, int textBlue) {
+        int textARGB;
+        ConfigData(boolean modEnabled, boolean shadowEnabled, int textARGB) {
             this.modEnabled = modEnabled;
             this.shadowEnabled = shadowEnabled;
-            this.textAlpha = textAlpha;
-            this.textRed = textRed;
-            this.textGreen = textGreen;
-            this.textBlue = textBlue;
+            this.textARGB = textARGB;
         }
     }
 

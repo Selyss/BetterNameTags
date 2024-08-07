@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import net.minecraft.client.render.entity.EntityRenderer;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import selyss.borderlessnametags.ColorUtils;
 import selyss.borderlessnametags.manager.ConfigManager;
 
 import java.awt.*;
@@ -25,9 +24,6 @@ public class EntityRendererMixin {
 			return textRenderer.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
 		}
 
-		Color textColor = ConfigManager.getEnabledTextColor();
-		int argbColor = ColorUtils.colorToARGB(textColor);
-
-		return textRenderer.draw(text, x, y, argbColor, ConfigManager.shadowEnabled, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0x00FFFFFF, light);
+		return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0x00FFFFFF, light);
 	}
 }
