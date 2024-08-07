@@ -16,14 +16,11 @@ import java.awt.*;
 public class EntityRendererMixin {
 	@Redirect(method = "renderLabelIfPresent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I"))
 	private int borderlessNameTags(TextRenderer textRenderer, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
-		// default color is: 0xFFFFFFFF
-		// default bg color is: 0x00FFFFFF
 
 		if (!ConfigManager.modEnabled) {
-			// If the mod is not enabled, call the original method
 			return textRenderer.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
 		}
 
-		return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0x00FFFFFF, light);
+		return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, ConfigManager.bgARGB, light);
 	}
 }

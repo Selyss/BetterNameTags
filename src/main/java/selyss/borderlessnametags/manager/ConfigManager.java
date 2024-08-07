@@ -16,8 +16,8 @@ public class ConfigManager {
     public static boolean modEnabled = true;
     public static boolean shadowEnabled = true;
     public static int textARGB = 0xFFFFFFFF;
-//    public static int bgOpacity = 255 // highest in ARGB spec
-    // TODO: add bgRed, bgGreen, bgBlue
+    public static int bgARGB = 0x3F000000; // 25% opacity black
+
 
     // credit to https://github.com/Walksy/ShieldStatus/blob/main/src/main/java/walksy/shieldstatus/manager/ConfigManager.java for config stuff
     private static final Path configDir = FabricLoader.getInstance().getConfigDir();
@@ -25,7 +25,7 @@ public class ConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void save() {
-        ConfigData configData = new ConfigData(modEnabled, shadowEnabled, textARGB);
+        ConfigData configData = new ConfigData(modEnabled, shadowEnabled, textARGB, bgARGB);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             GSON.toJson(configData, writer);
@@ -41,6 +41,7 @@ public class ConfigManager {
                 modEnabled = configData.modEnabled;
                 shadowEnabled = configData.shadowEnabled;
                 textARGB = configData.textARGB;
+                bgARGB = configData.bgARGB;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -52,10 +53,12 @@ public class ConfigManager {
         boolean shadowEnabled;
 
         int textARGB;
-        ConfigData(boolean modEnabled, boolean shadowEnabled, int textARGB) {
+        int bgARGB;
+        ConfigData(boolean modEnabled, boolean shadowEnabled, int textARGB, int bgARGB) {
             this.modEnabled = modEnabled;
             this.shadowEnabled = shadowEnabled;
             this.textARGB = textARGB;
+            this.bgARGB = bgARGB;
         }
     }
 

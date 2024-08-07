@@ -46,6 +46,15 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
+        visualsCategory.addEntry(entryBuilder.startAlphaColorField(Text.literal("Background Color"), ConfigManager.bgARGB)
+                .setDefaultValue(0x3F000000)
+                .setTooltip(Text.literal("The color of the background"))
+                .setSaveConsumer(newValue -> {
+                    ConfigManager.bgARGB = newValue;
+                })
+                .build());
+
+
         builder.setSavingRunnable(ConfigManager::save);
         return builder.build();
     }
