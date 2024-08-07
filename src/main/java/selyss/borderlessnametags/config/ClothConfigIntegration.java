@@ -19,10 +19,10 @@ public class ClothConfigIntegration {
                 .setTitle(Text.literal("Borderless Name Tags Config"));
 
         ConfigCategory generalCategory = builder.getOrCreateCategory(Text.literal("General"));
-        ConfigCategory colorCategory = builder.getOrCreateCategory(Text.literal("Colors"));
+        ConfigCategory visualsCategory = builder.getOrCreateCategory(Text.literal("Visuals"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("BorderlessNameTags Enabled"), ConfigManager.modEnabled)
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("BorderlessNameTags Mod Enabled"), ConfigManager.modEnabled)
                 .setDefaultValue(ConfigManager.modEnabled)
                 .setTooltip(Text.literal("Should enable borderless name tags"))
                 .setSaveConsumer(newValue -> {
@@ -30,7 +30,15 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
-        SubCategoryBuilder textColorSub = entryBuilder.startSubCategory(Text.literal("Enabled Text Color"));
+        visualsCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Text Shadow"), ConfigManager.shadowEnabled)
+        .setDefaultValue(ConfigManager.shadowEnabled)
+                .setTooltip(Text.literal("Should enable shadow for text"))
+                .setSaveConsumer(newValue -> {
+                    ConfigManager.shadowEnabled = newValue;
+                })
+                .build());
+
+        SubCategoryBuilder textColorSub = entryBuilder.startSubCategory(Text.literal("Text Color"));
 
         textColorSub.add(entryBuilder.startIntSlider(Text.literal("Text Red"), ConfigManager.textRed, 0, 255)
                 .setDefaultValue(ConfigManager.textRed)
@@ -56,7 +64,7 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
-        colorCategory.addEntry(textColorSub.setExpanded(true).build());
+        visualsCategory.addEntry(textColorSub.setExpanded(true).build());
         builder.setSavingRunnable(ConfigManager::save);
         return builder.build();
     }

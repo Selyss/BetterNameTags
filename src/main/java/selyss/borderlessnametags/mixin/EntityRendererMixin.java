@@ -28,6 +28,6 @@ public class EntityRendererMixin {
 		Color textColor = ConfigManager.getEnabledTextColor();
 		int argbColor = ColorUtils.colorToARGB(textColor);
 
-		return textRenderer.draw(text, x, y, argbColor, true, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0x00FFFFFF, light);
+		return textRenderer.draw(text, x, y, argbColor, ConfigManager.shadowEnabled, matrix, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0x00FFFFFF, light);
 	}
 }
