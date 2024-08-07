@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 
+
 public class ConfigManager {
     public static boolean modEnabled = true;
     public static int textRed = 255, textGreen = 255, textBlue = 255;

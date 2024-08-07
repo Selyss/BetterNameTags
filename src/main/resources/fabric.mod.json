@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"selyss.borderlessnametags.BorderlessNameTags"
+		],
+		"modmenu": [
+			"selyss.borderlessnametags.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
