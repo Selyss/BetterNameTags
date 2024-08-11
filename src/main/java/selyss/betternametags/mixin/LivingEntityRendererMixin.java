@@ -1,4 +1,4 @@
-package selyss.borderlessnametags.mixin;
+package selyss.betternametags.mixin;
 
 
 import net.minecraft.client.MinecraftClient;

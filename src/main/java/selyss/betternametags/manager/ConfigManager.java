@@ -1,4 +1,4 @@
-package selyss.borderlessnametags.manager;
+package selyss.betternametags.manager;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

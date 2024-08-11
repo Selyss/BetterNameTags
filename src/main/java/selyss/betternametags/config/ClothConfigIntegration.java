@@ -1,4 +1,4 @@
-package selyss.borderlessnametags.config;
+package selyss.betternametags.config;
 
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -6,7 +6,7 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import selyss.borderlessnametags.manager.ConfigManager;
+import selyss.betternametags.manager.ConfigManager;
 
 public class ClothConfigIntegration {
     protected static Screen getConfigScreen(Screen parent) {

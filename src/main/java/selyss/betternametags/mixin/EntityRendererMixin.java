@@ -1,4 +1,4 @@
-package selyss.borderlessnametags.mixin;
+package selyss.betternametags.mixin;
 
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import net.minecraft.client.render.entity.EntityRenderer;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import selyss.borderlessnametags.manager.ConfigManager;
+import selyss.betternametags.manager.ConfigManager;
 
 @Mixin(EntityRenderer.class)
 public class EntityRendererMixin {

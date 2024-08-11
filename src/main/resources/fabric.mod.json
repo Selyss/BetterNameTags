@@ -1,8 +1,8 @@
 {
 	"schemaVersion": 1,
-	"id": "borderless-name-tags",
+	"id": "better-name-tags",
 	"version": "${version}",
-	"name": "Borderless Name Tags",
+	"name": "Better Name Tags",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Selyss"
@@ -12,18 +12,18 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/borderless-name-tags/icon.png",
+	"icon": "assets/better-name-tags/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"selyss.borderlessnametags.BorderlessNameTags"
+			"selyss.betternametags.BetterNameTags"
 		],
 		"modmenu": [
-			"selyss.borderlessnametags.config.ModMenuIntegration"
+			"selyss.betternametags.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"borderless-name-tags.mixins.json"
+		"better-name-tags.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
