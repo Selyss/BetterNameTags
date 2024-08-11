@@ -18,14 +18,6 @@ public class ClothConfigIntegration {
         ConfigCategory colorsCategory = builder.getOrCreateCategory(Text.literal("Colors"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Mod Enabled"), ConfigManager.modEnabled)
-                .setDefaultValue(true)
-                .setTooltip(Text.literal("Should enable Better Nametags mod"))
-                .setSaveConsumer(newValue -> {
-                    ConfigManager.modEnabled = newValue;
-                })
-                .build());
-
         generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Personal Name Tag Enabled"), ConfigManager.personalNameTagEnabled)
                 .setDefaultValue(false)
                 .setTooltip(Text.literal("Should enable personal name tags"))
