@@ -21,7 +21,7 @@ public class EntityRendererMixin {
 			return textRenderer.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
 		}
 
-		// texttype shouldnt be hardcoded cause it makes stuff look weird and makes shadows cover parts of the name
+		// texttype shouldn't be hardcoded cause it makes stuff look weird and makes shadows cover parts of the name
 		return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, layerType, ConfigManager.bgARGB, light);
 	}
 }
