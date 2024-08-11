@@ -16,8 +16,8 @@ public class ConfigManager {
     public static boolean shadowEnabled = true;
     public static int textARGB = 0xFFFFFFFF;
     public static int bgARGB = 0x3F000000; // 25% opacity black
-
     public static boolean personalNameTagEnabled = false;
+    public static boolean nameTagsEnabled = true;
 
 
     // credit to https://github.com/Walksy/ShieldStatus/blob/main/src/main/java/walksy/shieldstatus/manager/ConfigManager.java for config stuff
@@ -26,7 +26,7 @@ public class ConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void save() {
-        ConfigData configData = new ConfigData(modVisualsEnabled, shadowEnabled, textARGB, bgARGB, personalNameTagEnabled);
+        ConfigData configData = new ConfigData(modVisualsEnabled, shadowEnabled, textARGB, bgARGB, personalNameTagEnabled, nameTagsEnabled);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             GSON.toJson(configData, writer);
@@ -44,6 +44,7 @@ public class ConfigManager {
                 textARGB = configData.textARGB;
                 bgARGB = configData.bgARGB;
                 personalNameTagEnabled = configData.personalNameTagEnabled;
+                nameTagsEnabled = configData.nameTagsEnabled;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -56,12 +57,14 @@ public class ConfigManager {
         int textARGB;
         int bgARGB;
         boolean personalNameTagEnabled;
-        ConfigData(boolean modEnabled, boolean shadowEnabled, int textARGB, int bgARGB, boolean personalNameTagEnabled) {
+        boolean nameTagsEnabled;
+        ConfigData(boolean modEnabled, boolean shadowEnabled, int textARGB, int bgARGB, boolean personalNameTagEnabled, boolean nameTagsEnabled) {
             this.modEnabled = modEnabled;
             this.shadowEnabled = shadowEnabled;
             this.textARGB = textARGB;
             this.bgARGB = bgARGB;
             this.personalNameTagEnabled = personalNameTagEnabled;
+            this.nameTagsEnabled = nameTagsEnabled;
         }
     }
 

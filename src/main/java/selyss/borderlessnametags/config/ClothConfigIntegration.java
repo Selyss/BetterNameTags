@@ -34,6 +34,14 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Name Tags Enabled"), ConfigManager.nameTagsEnabled)
+                .setDefaultValue(true)
+                .setTooltip(Text.literal("Should enable name tags"))
+                .setSaveConsumer(newValue -> {
+                    ConfigManager.nameTagsEnabled = newValue;
+                })
+                .build());
+
         visualsCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Text Shadow"), ConfigManager.shadowEnabled)
         .setDefaultValue(false)
                 .setTooltip(Text.literal("Should enable shadow for text"))

@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"EntityRendererMixin",
-		"LivingEntityRendererMixin"
+		"LivingEntityRendererMixin",
+		"DisableNameTagMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
