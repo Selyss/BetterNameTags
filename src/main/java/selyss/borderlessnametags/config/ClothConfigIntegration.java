@@ -3,14 +3,10 @@ package selyss.borderlessnametags.config;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
-import me.shedaniel.math.Color;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import selyss.borderlessnametags.manager.ConfigManager;
-
-import java.io.ObjectInputFilter;
 
 public class ClothConfigIntegration {
     protected static Screen getConfigScreen(Screen parent) {
@@ -22,11 +18,19 @@ public class ClothConfigIntegration {
         ConfigCategory visualsCategory = builder.getOrCreateCategory(Text.literal("Visuals"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("BorderlessNameTags Mod Enabled"), ConfigManager.modEnabled)
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Mod Visuals Enabled"), ConfigManager.modVisualsEnabled)
                 .setDefaultValue(true)
                 .setTooltip(Text.literal("Should enable borderless name tags"))
                 .setSaveConsumer(newValue -> {
-                    ConfigManager.modEnabled = newValue;
+                    ConfigManager.modVisualsEnabled = newValue;
+                })
+                .build());
+
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Personal Name Tag Enabled"), ConfigManager.personalNameTagEnabled)
+                .setDefaultValue(false)
+                .setTooltip(Text.literal("Should enable personal name tags"))
+                .setSaveConsumer(newValue -> {
+                    ConfigManager.personalNameTagEnabled = newValue;
                 })
                 .build());
 

@@ -10,14 +10,12 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import selyss.borderlessnametags.manager.ConfigManager;
 
-import java.awt.*;
-
 @Mixin(EntityRenderer.class)
 public class EntityRendererMixin {
 	@Redirect(method = "renderLabelIfPresent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/font/TextRenderer;draw(Lnet/minecraft/text/Text;FFIZLorg/joml/Matrix4f;Lnet/minecraft/client/render/VertexConsumerProvider;Lnet/minecraft/client/font/TextRenderer$TextLayerType;II)I"))
 	private int borderlessNameTags(TextRenderer textRenderer, Text text, float x, float y, int color, boolean shadow, Matrix4f matrix, VertexConsumerProvider vertexConsumers, TextRenderer.TextLayerType layerType, int backgroundColor, int light) {
 
-		if (!ConfigManager.modEnabled) {
+		if (!ConfigManager.modVisualsEnabled) {
 			return textRenderer.draw(text, x, y, color, shadow, matrix, vertexConsumers, layerType, backgroundColor, light);
 		}
 
