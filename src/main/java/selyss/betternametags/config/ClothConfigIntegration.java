@@ -20,7 +20,7 @@ public class ClothConfigIntegration {
 
         generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Personal Name Tag Enabled"), ConfigManager.personalNameTagEnabled)
                 .setDefaultValue(false)
-                .setTooltip(Text.literal("Should enable personal name tags"))
+                .setTooltip(Text.literal("Should enable personal name tag"))
                 .setSaveConsumer(newValue -> {
                     ConfigManager.personalNameTagEnabled = newValue;
                 })
