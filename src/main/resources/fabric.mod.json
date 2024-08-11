@@ -3,7 +3,7 @@
 	"id": "better-name-tags",
 	"version": "${version}",
 	"name": "Better Nametags",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A mod that adds a few quality of life improvements to the rendering of nametags.",
 	"authors": [
 		"Selyss"
 	],

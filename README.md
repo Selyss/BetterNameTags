@@ -6,7 +6,7 @@
 - [x] Add a setting to turn off every name tag
 - [x] Convert to ARGB instead of RGB sliders
 - [x] Make reset buttons work
-- [ ] Change mod name
+- [x] Change mod name
 - [ ] Try to make default name tag visual settings actually look real
 - [ ] Option to change name tag size
-- [ ] Get mod icon
+- [x] Get mod icon
