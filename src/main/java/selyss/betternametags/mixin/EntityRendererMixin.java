@@ -20,6 +20,11 @@ public class EntityRendererMixin {
 		}
 
 		// texttype shouldn't be hardcoded cause it makes stuff look weird and makes shadows cover parts of the name
+
+		// bandaid fix for weird bg shadow bug (jk this doesnt really work if nametag color is changed at all)
+		if (ConfigManager.bgARGB == 0x3F000000) {
+			return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, layerType, backgroundColor, light);
+		}
 		return textRenderer.draw(text, x, y, ConfigManager.textARGB, ConfigManager.shadowEnabled, matrix, vertexConsumers, layerType, ConfigManager.bgARGB, light);
 	}
 }
