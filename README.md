@@ -10,3 +10,4 @@
 - [ ] Try to make default name tag visual settings actually look real
 - [ ] Option to change name tag size
 - [x] Get mod icon
+- [ ] Fix weird bg shadow issue (waiting for mc patch)
