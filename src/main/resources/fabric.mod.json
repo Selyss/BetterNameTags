@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "better-name-tags",
 	"version": "${version}",
-	"name": "Better Name Tags",
+	"name": "Better Nametags",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Selyss"

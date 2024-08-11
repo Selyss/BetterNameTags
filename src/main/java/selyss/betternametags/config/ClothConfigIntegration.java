@@ -12,7 +12,7 @@ public class ClothConfigIntegration {
     protected static Screen getConfigScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(MinecraftClient.getInstance().currentScreen)
-                .setTitle(Text.literal("Borderless Name Tags Config"));
+                .setTitle(Text.literal("Better Nametags Config"));
 
         ConfigCategory generalCategory = builder.getOrCreateCategory(Text.literal("General"));
         ConfigCategory visualsCategory = builder.getOrCreateCategory(Text.literal("Visuals"));
@@ -20,7 +20,7 @@ public class ClothConfigIntegration {
 
         generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Mod Visuals Enabled"), ConfigManager.modVisualsEnabled)
                 .setDefaultValue(true)
-                .setTooltip(Text.literal("Should enable borderless name tags"))
+                .setTooltip(Text.literal("Should enable Better Nametag visuals"))
                 .setSaveConsumer(newValue -> {
                     ConfigManager.modVisualsEnabled = newValue;
                 })
