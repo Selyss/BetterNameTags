@@ -12,7 +12,7 @@ import java.nio.file.Path;
 
 
 public class ConfigManager {
-    public static boolean modVisualsEnabled = true;
+    public static boolean modEnabled = true;
     public static boolean shadowEnabled = true;
     public static int textARGB = 0xFFFFFFFF;
     public static int bgARGB = 0x3F000000; // 25% opacity black
@@ -26,7 +26,7 @@ public class ConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void save() {
-        ConfigData configData = new ConfigData(modVisualsEnabled, shadowEnabled, textARGB, bgARGB, personalNameTagEnabled, nameTagsEnabled);
+        ConfigData configData = new ConfigData(modEnabled, shadowEnabled, textARGB, bgARGB, personalNameTagEnabled, nameTagsEnabled);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             GSON.toJson(configData, writer);
@@ -39,7 +39,7 @@ public class ConfigManager {
         if (configFile.exists()) {
             try (FileReader reader = new FileReader(configFile)) {
                 ConfigData configData = GSON.fromJson(reader, ConfigData.class);
-                modVisualsEnabled = configData.modEnabled;
+                modEnabled = configData.modEnabled;
                 shadowEnabled = configData.shadowEnabled;
                 textARGB = configData.textARGB;
                 bgARGB = configData.bgARGB;

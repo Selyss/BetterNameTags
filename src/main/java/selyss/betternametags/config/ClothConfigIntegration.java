@@ -15,14 +15,14 @@ public class ClothConfigIntegration {
                 .setTitle(Text.literal("Better Nametags Config"));
 
         ConfigCategory generalCategory = builder.getOrCreateCategory(Text.literal("General"));
-        ConfigCategory visualsCategory = builder.getOrCreateCategory(Text.literal("Visuals"));
+        ConfigCategory colorsCategory = builder.getOrCreateCategory(Text.literal("Colors"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Mod Visuals Enabled"), ConfigManager.modVisualsEnabled)
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Mod Enabled"), ConfigManager.modEnabled)
                 .setDefaultValue(true)
-                .setTooltip(Text.literal("Should enable Better Nametag visuals"))
+                .setTooltip(Text.literal("Should enable Better Nametags mod"))
                 .setSaveConsumer(newValue -> {
-                    ConfigManager.modVisualsEnabled = newValue;
+                    ConfigManager.modEnabled = newValue;
                 })
                 .build());
 
@@ -42,7 +42,7 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
-        visualsCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Text Shadow"), ConfigManager.shadowEnabled)
+        generalCategory.addEntry(entryBuilder.startBooleanToggle(Text.literal("Text Shadow"), ConfigManager.shadowEnabled)
         .setDefaultValue(false)
                 .setTooltip(Text.literal("Should enable shadow for text"))
                 .setSaveConsumer(newValue -> {
@@ -50,7 +50,7 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
-        visualsCategory.addEntry(entryBuilder.startAlphaColorField(Text.literal("Text Color"), ConfigManager.textARGB)
+        colorsCategory.addEntry(entryBuilder.startAlphaColorField(Text.literal("Text Color"), ConfigManager.textARGB)
                 .setDefaultValue(0xFFFFFFFF)
                 .setTooltip(Text.literal("The color of the text"))
                 .setSaveConsumer(newValue -> {
@@ -58,7 +58,7 @@ public class ClothConfigIntegration {
                 })
                 .build());
 
-        visualsCategory.addEntry(entryBuilder.startAlphaColorField(Text.literal("Background Color"), ConfigManager.bgARGB)
+        colorsCategory.addEntry(entryBuilder.startAlphaColorField(Text.literal("Background Color"), ConfigManager.bgARGB)
                 .setDefaultValue(0x3F000000)
                 .setTooltip(Text.literal("The color of the background"))
                 .setSaveConsumer(newValue -> {
