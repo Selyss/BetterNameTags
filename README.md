@@ -9,3 +9,4 @@
 - [ ] Change mod name
 - [ ] Try to make default name tag visual settings actually look real
 - [ ] Change name tag size
+- [ ] Get mod icon
