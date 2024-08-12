@@ -11,3 +11,4 @@
 - [ ] Option to change name tag size
 - [x] Get mod icon
 - [ ] Fix weird bg shadow issue (waiting for mc patch)
+- [ ] Update fabric json
